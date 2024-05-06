@@ -22,3 +22,6 @@
 ![Figure 2](media/s2.jpg)
 #### Voronoi usecase
 ![Figure 3](media/s3.jpg)
+
+
+### Hosted at : https://biraj094-ada-ait-voronoi-main-xt6qhr.streamlit.app/

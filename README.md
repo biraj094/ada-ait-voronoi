@@ -1,5 +1,8 @@
 # ada-ait-voronoi
 
+
+### Hosted at : https://biraj094-ada-ait-voronoi-main-xt6qhr.streamlit.app/
+
 # Implementation of Voronoi diagram using naive and Bowyer-Watson algorithm.
 
 
@@ -23,5 +26,3 @@
 #### Voronoi usecase
 ![Figure 3](media/s3.jpg)
 
-
-### Hosted at : https://biraj094-ada-ait-voronoi-main-xt6qhr.streamlit.app/

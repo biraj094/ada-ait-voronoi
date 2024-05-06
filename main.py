@@ -26,7 +26,8 @@ def colorizeTriangles(triangles):
     return triangle_colors
 
 def delaunay_triangulation():
-    st.title("Naive Delaunay Triangulation Visualization")
+    st.title("Exploring Delaunay Triangulation with Naive Implementation")
+    st.write("Explore the Delaunay triangulation process through a naive implementation. Unlike the Bowyer-Watson algorithm, this approach exhaustively checks all possible triangles, lacking the efficiency of dynamic updates. Without interactivity due to resource-intensive computations, users observe the complete recalculation of the triangulation for each point insertion. Despite its simplicity, this method demonstrates the computational overhead of brute-force approaches, highlighting the need for more efficient algorithms like Bowyer-Watson. By visualizing the exhaustive process, users gain insight into the challenges of computational geometry and appreciate the performance gains offered by more sophisticated algorithms.")
     graph = Graph()
     random.seed(time.time())
 
@@ -69,10 +70,14 @@ import matplotlib.tri as tri
 import random
 
 def bowyer_watson():
-    st.title("Bowyer-Watson Algorithm Visualization")
+    st.title("Exploring Delaunay Triangulation with Bowyer-Watson Algorithm")
+    st.write("Discover the Bowyer-Watson algorithm's efficiency in constructing Delaunay triangulations. This visualization showcases the algorithm's dynamic insertion of points while preserving the Delaunay property. Similar to Voronoi diagram generation, the Python implementation offers efficiency over naive approaches by updating the triangulation dynamically. Users can interactively adjust parameters, like the number of points, witnessing the triangulation's evolution. This hands-on exploration enhances understanding of Delaunay triangulation's geometric intricacies, demonstrating its significance in computational geometry.")
     WIDTH = int(100)
     HEIGHT = int(100)
-    n = 100  # n should be greater than 2
+    # n = 100  # n should be greater than 2
+    # n = st.number_input("Number of Points", min_value=50, step=1, value=200) 
+    st.write("<span style='color:red'>Number of Points (Interactive)</span>", unsafe_allow_html=True)
+    n = st.number_input("", min_value=50, step=1, value=200, format="%d", key="number_input", help="Enter the number of points")
 
     xs = [random.randint(1, WIDTH - 1) for x in range(n)]
     ys = [random.randint(1, HEIGHT - 1) for y in range(n)]
@@ -124,13 +129,43 @@ def example():
     vor = Voronoi(points)
     fig, ax = plt.subplots(figsize=(10, 8))
     voronoi_plot_2d(vor, ax=ax, show_vertices=False, line_colors='red', line_width=2, line_alpha=0.6, point_size=6)
+    ax.set_xlabel('Longitude')
+    ax.set_ylabel('Latitude')
+    ax.spines['bottom'].set_color('gray')
+    ax.spines['bottom'].set_linewidth(0.5)
+    ax.spines['left'].set_color('gray')
+    ax.spines['left'].set_linewidth(0.5)
+    ax.tick_params(axis='both', colors='gray')
+    ax.scatter([lng for lat, lng in points], [lat for lat, lng in points], color='blue', label='Hospitals')
+    
+    # Add legend for hospitals
+    ax.legend(loc='upper right', fontsize=12)
+    ax.set_title('Voronoi Diagram of Hospitals in Bangkok', color='black', fontsize=16)
     st.pyplot(fig)
+
+def usecase_example():
+    st.title('Optimizing Hospital Placement in Bangkok with Voronoi Diagrams')
+    st.write('In the bustling metropolis of Bangkok, ensuring efficient access to healthcare facilities is paramount for public welfare. To address this challenge, advanced spatial analysis techniques like Voronoi diagrams emerge as invaluable tools.')
+
+    st.write('**Contextual Overview:**')
+    st.write('Bangkok, Thailand\'s capital, is a sprawling urban landscape teeming with millions of residents and visitors. As with any major city, access to healthcare services is critical for maintaining public health and safety. However, the strategic placement of hospitals is complex, requiring considerations of population density, traffic patterns, and geographic features.')
+
+    st.write('**Voronoi Diagrams in Action:**')
+    st.write('To visualize and analyze hospital distribution in Bangkok, we employ Voronoi diagrams. The provided Python code utilizes a sample of hospital coordinates (latitudes and longitudes) to generate a Voronoi diagram, dividing Bangkok into distinct regions based on the proximity to these hospitals.')
+    # Generating Voronoi diagram
+    example()
+    st.write('**Benefits of Voronoi Diagrams:**')
+    st.write('1. **Optimized Resource Allocation:** Voronoi diagrams help identify areas with inadequate access to healthcare facilities, enabling policymakers to strategically allocate resources to underserved regions.')
+    st.write('2. **Spatial Analysis:** By visually representing spatial relationships, Voronoi diagrams facilitate informed decision-making regarding hospital placement, considering factors like population distribution and travel time.')
+    st.write('3. **Efficiency Enhancement:** Through the clear delineation of catchment areas, Voronoi diagrams aid in streamlining emergency response systems and optimizing ambulance dispatch routes.')
+    st.write('4. **Cost Reduction:** By minimizing redundancy and ensuring equitable distribution, Voronoi diagrams contribute to cost-effective healthcare delivery, maximizing the impact of limited resources.')
+
     
 
 
 def main():
-    st.sidebar.title("Select Algorithm")
-    algorithm = st.sidebar.selectbox("Choose algorithm", ["Home","Naive Delaunay Triangulation", "Bowyer-Watson","Example"])
+    st.sidebar.title("Menu")
+    algorithm = st.sidebar.selectbox("Please choose menu items", ["Home","Naive Delaunay Triangulation", "Bowyer-Watson","Real world usecase"])
 
     if algorithm == "Home":
         st.title("Voronoi using naive and Bowyer-Watson Implementation")
@@ -139,12 +174,14 @@ def main():
         st.write("The naive approach to Delaunay triangulation involves checking every possible triangle formed by the given points and verifying if it satisfies the Delaunay condition. This method has a time complexity of O(n^4), where n is the number of input points, making it inefficient for large datasets.")
         st.write("Bowyer-Watson")
         st.write("The Bowyer-Watson algorithm is a more efficient approach to Delaunay triangulation. It starts with a super-triangle that encloses all the input points and iteratively adds points one by one while maintaining the Delaunay condition. The time complexity of the Bowyer-Watson algorithm is O(n^2 log n), where n is the number of input points. This algorithm significantly reduces the time complexity compared to the naive approach, making it more suitable for practical applications, especially with larger datasets.")
+        st.write("<u><b>Submitted by:</b> Biraj Koirala (st124371) and Parun Ngamcharoen (st124026)</u>", unsafe_allow_html=True)
+        st.write("<u><b>Submitted to:</b> Prof. Chantri Polprasert</u>", unsafe_allow_html=True)
     elif algorithm == "Bowyer-Watson":
         bowyer_watson()
     elif algorithm == "Naive Delaunay Triangulation":
         delaunay_triangulation()
-    elif algorithm == "Example":
-        example()
+    elif algorithm == "Real world usecase":
+        usecase_example()
 
 
         

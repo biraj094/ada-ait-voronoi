@@ -1,9 +1,9 @@
 # ada-ait-voronoi
 
-Implementation of Voronoi diagram using naive and Bowyer-Watson algorithm.
+# Implementation of Voronoi diagram using naive and Bowyer-Watson algorithm.
 
 
-Steps to run the project:
+### Steps to run the project:
 
 1. ```conda create --name env-ada-ait-voronoi python=3.6```
 
@@ -14,3 +14,11 @@ Steps to run the project:
 4. ```python main.py```
 
 
+### Screenshot
+
+Voronoi implemented by naive algorithm
+![Figure 1](media/s1.jpg)
+Voronoi using Bowyer-Watson Implementation
+![Figure 2](media/s2.jpg)
+Voronoi usecase
+![Figure 3](media/s3.jpg)

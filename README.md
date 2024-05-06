@@ -16,9 +16,9 @@
 
 ### Screenshot
 
-Voronoi implemented by naive algorithm
+#### Voronoi implemented by naive algorithm
 ![Figure 1](media/s1.jpg)
-Voronoi using Bowyer-Watson Implementation
+#### Voronoi using Bowyer-Watson Implementation
 ![Figure 2](media/s2.jpg)
-Voronoi usecase
+#### Voronoi usecase
 ![Figure 3](media/s3.jpg)

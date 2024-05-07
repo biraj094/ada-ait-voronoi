@@ -5,6 +5,13 @@
 
 # Implementation of Voronoi diagram using naive and Bowyer-Watson algorithm.
 
+Youtube Video - https://www.youtube.com/watch?v=oL1RcVN7rtY
+Github Repository Link - https://github.com/biraj094/ada-ait-voronoi
+Deployment Link - https://biraj094-ada-ait-voronoi-main-xt6qhr.streamlit.app/
+Google Drive Link - https://drive.google.com/drive/folders/1lkwUddPqlsf6YyYqw6zcABtT3b9tGr2-
+
+
+
 
 ### Steps to run the project:
 

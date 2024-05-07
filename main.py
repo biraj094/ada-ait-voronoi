@@ -171,9 +171,9 @@ def main():
         st.title("Voronoi using naive and Bowyer-Watson Implementation")
         st.write("Delaunay triangulation is a method for creating a triangulated representation of a set of points in a plane such that no point lies inside the circumcircle of any triangle in the triangulation.")
         st.write("Naive Delaunay Algorithm")
-        st.write("The naive approach to Delaunay triangulation involves checking every possible triangle formed by the given points and verifying if it satisfies the Delaunay condition. This method has a time complexity of O(n^4), where n is the number of input points, making it inefficient for large datasets.")
+        st.write("The naive approach to Delaunay triangulation involves checking every possible triangle formed by the given points and verifying if it satisfies the Delaunay condition. This method has a time complexity of O(n^3), where n is the number of input points, making it inefficient for large datasets.")
         st.write("Bowyer-Watson")
-        st.write("The Bowyer-Watson algorithm is a more efficient approach to Delaunay triangulation. It starts with a super-triangle that encloses all the input points and iteratively adds points one by one while maintaining the Delaunay condition. The time complexity of the Bowyer-Watson algorithm is O(n^2 log n), where n is the number of input points. This algorithm significantly reduces the time complexity compared to the naive approach, making it more suitable for practical applications, especially with larger datasets.")
+        st.write("The Bowyer-Watson algorithm is a more efficient approach to Delaunay triangulation. It starts with a super-triangle that encloses all the input points and iteratively adds points one by one while maintaining the Delaunay condition. The time complexity of the Bowyer-Watson algorithm is O(n^2), where n is the number of input points. This algorithm significantly reduces the time complexity compared to the naive approach, making it more suitable for practical applications, especially with larger datasets.")
         st.write("<u><b>Submitted by:</b> Biraj Koirala (st124371) and Parun Ngamcharoen (st124026)</u>", unsafe_allow_html=True)
         st.write("<u><b>Submitted to:</b> Prof. Chantri Polprasert</u>", unsafe_allow_html=True)
     elif algorithm == "Bowyer-Watson":
